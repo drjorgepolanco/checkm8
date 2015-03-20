@@ -60,26 +60,44 @@ body
     .expand
       +absolute(10)
       h3
-        +expand-collapse(3, 2, 1)
+        +expand-collapse(3, 1.7, 1)
     .background
       +absolute(0)
 
 #panel
-  background: url("../images/background_full.jpg") no-repeat
   @extend %absolute
+  background: url("../images/background_full.jpg") no-repeat
   display: none
   width: 970px
   height: 600px
   .panel
     @extend %relative
     .collapse
-      +absolute(10)
       h3
-        +expand-collapse(0.5, 2.3, 1.5)
+        +expand-collapse(0.5, 2, 1.5)
+    #media
+      padding-left: 75px
+      #carousel
+        float: left
+        width: 250px
+        height: 250px
+        margin-top: 180px
+        .slick-slide
+          img
+            display: block 
+            margin: 0 auto
+      #video
+        float: right
+        width: 500px
+        height: 280px
+        background: #000
+        margin-top: 165px
 
 #extra
   position: relative
   top: 0
   transition: 1.5s ease-in-out
   display: inline-block
-  margin: 100px
+  margin-top: 100px
+  width: 100%
+  text-align: center
