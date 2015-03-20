@@ -3,6 +3,8 @@
 // =========
 
 $white: #ffffff
+$coach: #2f3759
+$twitter: #4099FF
 
 
 // =============================================================================
@@ -77,21 +79,57 @@ body
         +expand-collapse(0.5, 2, 1.5)
     #media
       padding-left: 75px
+      padding-right: 60px
+      clear: right
       #carousel
         float: left
         width: 250px
         height: 250px
-        margin-top: 180px
+        margin-top: 100px
         .slick-slide
           img
             display: block 
             margin: 0 auto
       #video
         float: right
-        width: 500px
-        height: 280px
-        background: #000
-        margin-top: 165px
+        margin-top: 90px
+        .video
+          width: 500px
+          height: 280px
+          background: #000
+        .call-to-action
+          text-align: center
+          padding-top: 2.5em
+          a
+            font-size: 1.5em
+            text-transform: uppercase
+            padding: 14px 44px 6px 44px
+            width: 30%
+            background: $white
+            border-radius: 10px
+            color: $coach
+            -webkit-transition: all .4s
+            transition: all .4s
+            border: 2px solid $white
+            &:hover
+              color: $white
+              border: 2px solid $white
+              background: $coach
+    #twitter
+      clear: both
+      background: $twitter
+      height: 50px
+      width: 50px
+      float: right
+      border-radius: 50%
+      margin-right: 65px
+      img
+        height: 34px
+        width: 34px
+        margin: 0 auto
+        display: block
+        margin-top: 9px
+
 
 #extra
   position: relative
