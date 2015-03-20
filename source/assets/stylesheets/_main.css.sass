@@ -48,7 +48,7 @@ body
   width: 970px
   a
     text-decoration: none
-    color: white
+    color: $white
 
 #wrapper
   @extend %relative
@@ -77,3 +77,10 @@ body
         +expand-collapse(0.5, 2.3, 1.5)
     .background
       +absolute(0)
+
+#extra
+  position: relative
+  top: 0
+  transition: 1.2s ease-in
+  display: inline-block
+  margin: 100px
