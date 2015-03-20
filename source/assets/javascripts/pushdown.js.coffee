@@ -1,8 +1,9 @@
 $(document).ready ->
-  $('.expand').on 'click', ->
-    $('#panel').slideDown(1000)
+  $('.expand').on 'click', 'h3', ->
+    $('#panel').slideDown(1500)
     $('#banner').fadeOut(2000)
     return false
-  $('#wrapper').on 'click', ->
-    $('#panel').slideUp(2000)
+  $('.collapse').on 'click', 'h3', ->
+    $('#panel').slideUp(1500)
     $('#banner').fadeIn(2000)
+    return false
