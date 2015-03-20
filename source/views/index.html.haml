@@ -1,11 +1,13 @@
----
-title: Page Title
----
-
-.delete-me
-  .container
-    %h1 Proteus
-    %p
-      You're all set!
-      <a href="http://github.com/thoughtbot/proteus-middleman">Let's get started</a>
-      building your prototype.
+#wrapper
+  #banner
+    .banner
+      .expand
+        %h3= link_to "expand", "#"
+      .background
+        = image_tag("../images/background_top_banner.jpg")
+  #panel
+    .panel
+      .collapse
+        %h3= link_to "✖", "#"
+      .background
+        = image_tag("../images/background_full.jpg")
