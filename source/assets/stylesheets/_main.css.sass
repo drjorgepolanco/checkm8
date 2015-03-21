@@ -52,7 +52,7 @@ body
   background-color: $black
   margin: 0 auto
   width: 970px
-  -webkit-font-smoothing: antialiased !important
+  -webkit-font-smoothing: antialiased
   a
     text-decoration: none
     color: $black
@@ -68,6 +68,7 @@ body
       +absolute(10)
       h3
         +expand-collapse(3, 1.9, 0.9)
+        color: $white
     .background
       +absolute(0)
 
@@ -103,9 +104,8 @@ body
         margin-top: 90px
         .video-container
           border: 4px solid #000
-        .video
-          width: 500px
-          height: 280px
+          width: 508px
+          height: 288px
           background: #000
         .call-to-action
           text-align: center
@@ -140,7 +140,7 @@ body
         display: block
         margin-top: 9px
       &:hover
-        opacity: 0.8
+        background: $black
 
 #extra
   position: relative

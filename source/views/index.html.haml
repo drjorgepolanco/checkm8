@@ -24,14 +24,13 @@
         #video
           .video-container
             %a{href: "https://www.youtube.com/watch?v=ZiorYdIwH3M", target: "_blank"}
-              %video#coach-video.video-js.vjs-default-skin{controls: "", height: "280", width: "500"}
+              %video#coach-video{width: "500", height: "280", controls: ""}
                 %source{:src => "../assets/videos/introducing-coach-swagger.mp4", :type => "video/mp4"}
-              
           .call-to-action
             %a.shop-now{href: "http://www.coach.com/shop/women-new-arrivals-new-arrivals", target: "_blank"}
               shop now
       #twitter
-        %a.twitter-share-button{href: href="https://twitter.com/share?url=drjorgepolanco.com&text=I LOVE the new @coach swagger!", target: "_blank"}
+        %a.twitter-share-button{href: "https://twitter.com/share?url=drjorgepolanco.com&text=I LOVE the new @coach swagger!", target: "_blank"}
           %img{src: "../assets/images/twitter.png", alt: "Twitter Logo"}/
 
 #extra

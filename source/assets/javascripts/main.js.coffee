@@ -3,13 +3,18 @@
 # =====
 
 $(document).ready ->
-  coachVideo = videojs 'coach-video', { 
-    muted: true, 
-    preload: "auto" 
-  }
-  
+  coachVideo = document.getElementById('coach-video')
+  coachVideo.muted = "muted"
+
+  $('.expand').on 'click', 'h3', ->
+    coachVideo.load()
+    coachVideo.play()
+    coachVideo.muted = false
+    return
+
   $('video').on 'click', ->
-    coachVideo.pause()
+    if coachVideo.paused then coachVideo.play() else coachVideo.pause()
+    return
 
 
 # ==============================================================================
@@ -22,6 +27,7 @@ $(document).ready ->
       extra.css('top', '+=520') 
     else 
       extra.css('top', '0')
+    return
 
   openPanel = () ->
     $('#panel').slideDown(1500)
@@ -62,9 +68,11 @@ $(document).ready ->
       console.log("closing")
       closePanel()
     ), 8000
+    return
 
   stopTimeout = () ->
     window.clearTimeout(timer)
+    return
 
   window.onload = ->
     window.setTimeout (->
@@ -73,12 +81,11 @@ $(document).ready ->
     ), 1000
     document.getElementById('panel').onmouseover = ->
       isMouseOver = true
-      console.log("is mouse over?", isMouseOver)
       stopTimeout()
     document.getElementById('panel').onmouseout = ->
       isMouseOver = false
-      console.log("is mouse over?", isMouseOver)
       startTimeout()
+    return
 
 
 # ==============================================================================
