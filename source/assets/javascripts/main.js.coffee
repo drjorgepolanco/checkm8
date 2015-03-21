@@ -64,6 +64,18 @@ $(document).ready ->
 # ------------------------------------------------------------------------------
 # Concise
 # -------
+  
+  timer = undefined
+  isMouseOver = false
+
+  startTimeout = () ->
+    timer = window.setTimeout (->
+      console.log("closing")
+      closePanel()
+    ), 8000
+
+  stopTimeout = () ->
+    window.clearTimeout(timer)
 
   pushIt = () ->
     extra = $('#extra')
@@ -77,6 +89,7 @@ $(document).ready ->
     $('#banner').fadeOut(1200)
     pushIt('#extra')
     coachVideo.play()
+    return
 
   closePanel = () ->
     $('#panel').slideUp(1500)
@@ -91,9 +104,7 @@ $(document).ready ->
     return
 
   panelAction('.expand', openPanel)
-
   panelAction('.collapse', closePanel)
-
 
   $('.panel').on 'click', (e) ->
     if e.target == @
@@ -103,12 +114,19 @@ $(document).ready ->
     coachVideo.pause()
   
   window.onload = ->
-    setTimeout (->
+    window.setTimeout (->
       openPanel()
-      setTimeout (->
-        closePanel()
-      ), 9000
+      startTimeout() if isMouseOver == false
     ), 1000
+    document.getElementById('panel').onmouseover = ->
+      isMouseOver = true
+      console.log("is mouse over?", isMouseOver)
+      stopTimeout()
+    document.getElementById('panel').onmouseout = ->
+      isMouseOver = false
+      console.log("is mouse over?", isMouseOver)
+      startTimeout()
+
 
 # ==============================================================================
 # CAROUSEL
