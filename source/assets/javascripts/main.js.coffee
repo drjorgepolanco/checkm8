@@ -3,57 +3,97 @@
 # =====
 
 $(document).ready ->
-  coachVideo = videojs('coach-video', { muted: true, preload: "auto" })
+  coachVideo = videojs 'coach-video', { 
+    muted: true, 
+    preload: "auto" 
+  }
 
 
 # ==============================================================================
 # PUSHDOWN
 # ========
 
-  pushIt = (selector) ->
-    e = $(selector)
-    if e.css('top') == '0px' 
-      e.css('top', '+=520') 
-    else 
-      e.css('top', '0')
+# ------------------------------------------------------------------------------
+# Reusable
+# --------
 
-  openPanel = (down, out) ->
-    $(down).slideDown(1500)
-    $(out).fadeOut(1200)
+  # pushIt = (selector) ->
+  #   e = $(selector)
+  #   if e.css('top') == '0px' 
+  #     e.css('top', '+=520') 
+  #   else 
+  #     e.css('top', '0')
+
+  # openPanel = (panel, banner, extra) ->
+  #   $(panel).slideDown(1500)
+  #   $(banner).fadeOut(1200)
+  #   pushIt(extra)
+  #   coachVideo.play()
+
+  # closePanel = (panel, banner, extra) ->
+  #   $(panel).slideUp(1500)
+  #   $(banner).fadeIn(2000)
+  #   pushIt(extra)
+  #   coachVideo.pause()
+  #   return
+
+  # panelAction = (selector, action, panel, banner, extra) ->
+  #   $(selector).on 'click', 'h3', ->
+  #     action(panel, banner, extra)
+  #   return
+
+  # panelAction('.expand',   openPanel,  '#panel', '#banner', '#extra')
+  # panelAction('.collapse', closePanel, '#panel', '#banner', '#extra')
+
+
+  # $('.panel').on 'click', (e) ->
+  #   if e.target == @
+  #     window.open("http://www.coach.com/", "_blank")
+
+  # $('video').on 'click', ->
+  #   coachVideo.pause()
+  
+  # window.onload = ->
+  #   setTimeout (->
+  #     openPanel('#panel', '#banner', '#extra')
+  #     setTimeout (->
+  #       closePanel('#panel', '#banner', '#extra')
+  #     ), 9000
+  #   ), 1000
+
+# ------------------------------------------------------------------------------
+# Concise
+# -------
+
+  pushIt = () ->
+    extra = $('#extra')
+    if extra.css('top') == '0px' 
+      extra.css('top', '+=520') 
+    else 
+      extra.css('top', '0')
+
+  openPanel = () ->
+    $('#panel').slideDown(1500)
+    $('#banner').fadeOut(1200)
     pushIt('#extra')
     coachVideo.play()
-    # interact('#panel')
 
-  closePanel = (up, inward) ->
-    $(up).slideUp(1500)
-    $(inward).fadeIn(2000)
+  closePanel = () ->
+    $('#panel').slideUp(1500)
+    $('#banner').fadeIn(2000)
     pushIt('#extra')
     coachVideo.pause()
     return
 
-  timer = undefined
+  panelAction = (selector, action) ->
+    $(selector).on 'click', 'h3', ->
+      action()
+    return
 
-  # interact = (selector) ->
-  #   # $(selector).each ->
-  #   $(@).on 'mouseleave', ->
-  #     console.log("User gone")
-  #     timer = setTimeout (->
-  #       console.log("time to close!")
-  #       closePanel('#panel', '#banner')  
-  #     ), 8000
-  #   $('*').on 'click', ->
-  #     console.log("User interacting")
-  #     clearTimeout timer
-  #   $('.panel, #coach-video, .slider, .item, #twitter').on "mouseover", ->
-  #     console.log("stopping timeout")
-  #     clearTimeout timer
+  panelAction('.expand', openPanel)
 
-  $('.expand').on 'click', 'h3', ->
-    openPanel('#panel', '#banner')
-    # interact('#panel')
+  panelAction('.collapse', closePanel)
 
-  $('.collapse').on 'click', 'h3', ->
-    closePanel('#panel', '#banner')
 
   $('.panel').on 'click', (e) ->
     if e.target == @
@@ -64,12 +104,12 @@ $(document).ready ->
   
   window.onload = ->
     setTimeout (->
-      openPanel('#panel', '#banner')
-      setTimeout (->
-        closePanel('#panel', '#banner')
-      ), 9000
+      openPanel()
+      $('.panel').on 'mouseleave', ->
+        setTimeout (->
+          closePanel()
+        ), 9000
     ), 1000
-
 
 # ==============================================================================
 # CAROUSEL

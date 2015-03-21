@@ -3,7 +3,7 @@
 // =========
 
 $white: #ffffff
-$coach: #2f3759
+$black: #000000
 $twitter: #4099FF
 
 
@@ -49,11 +49,13 @@ $twitter: #4099FF
 // ========
 
 body
+  background-color: $black
   margin: 0 auto
   width: 970px
+  -webkit-font-smoothing: antialiased !important
   a
     text-decoration: none
-    color: $white
+    color: $black
 
 #wrapper
   @extend %relative
@@ -65,13 +67,13 @@ body
     .expand
       +absolute(10)
       h3
-        +expand-collapse(3, 1.7, 1)
+        +expand-collapse(3, 1.9, 0.9)
     .background
       +absolute(0)
 
 #panel
   @extend %absolute
-  background: url("../images/background_full.jpg") no-repeat
+  background: url("../images/background_full_black.jpg") no-repeat
   display: none
   width: 970px
   height: 600px
@@ -109,19 +111,19 @@ body
           text-align: center
           padding-top: 2.5em
           a
-            font-size: 1.5em
+            font-size: 1.3em
             text-transform: uppercase
-            padding: 14px 44px 6px 44px
+            padding: 10px 44px 4px 44px
             width: 30%
             background: $white
             border-radius: 10px
-            color: $coach
+            color: $black
             @extend %smooth-transition
             border: 2px solid $white
             &:hover
               color: $white
               border: 2px solid $white
-              background: $coach
+              background: $black
     #twitter
       clear: both
       background: $twitter
@@ -148,3 +150,5 @@ body
   margin-top: 100px
   width: 100%
   text-align: center
+  p
+    color: $white
