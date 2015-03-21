@@ -1,8 +1,14 @@
 # ==============================================================================
-# PUSHDOWN
-# ========
+# VIDEO
+# =====
 
 $(document).ready ->
+  coachVideo = videojs('coach-video', { muted: true, preload: "auto" })
+
+
+# ==============================================================================
+# PUSHDOWN
+# ========
 
   pushIt = (selector) ->
     e = $(selector)
@@ -11,28 +17,61 @@ $(document).ready ->
     else 
       e.css('top', '0')
 
-  $('.expand').on 'click', 'h3', ->
-    $('#panel').slideDown(1500)
-    $('#banner').fadeOut(1200)
+  openPanel = (down, out) ->
+    $(down).slideDown(1500)
+    $(out).fadeOut(1200)
     pushIt('#extra')
-    return false
+    coachVideo.play()
+    interact('#panel')
+
+  closePanel = (up, inward) ->
+    $(up).slideUp(1500)
+    $(inward).fadeIn(2000)
+    pushIt('#extra')
+    coachVideo.pause()
+    return
+
+  timer = undefined
+
+  interact = (selector) ->
+    # $(selector).each ->
+    $(@).on 'mouseleave', ->
+      console.log("User gone")
+      timer = setTimeout (->
+        console.log("time to close!")
+        closePanel('#panel', '#banner')  
+      ), 8000
+    $('*').on 'click', ->
+      console.log("User interacting")
+      clearTimeout timer
+    $('.panel, #coach-video, .slider, .item, #twitter').on "mouseover", ->
+      console.log("stopping timeout")
+      clearTimeout timer
+
+  $('.expand').on 'click', 'h3', ->
+    openPanel('#panel', '#banner')
+    interact('#panel')
 
   $('.collapse').on 'click', 'h3', ->
-    $('#panel').slideUp(1500)
-    $('#banner').fadeIn(2000)
-    pushIt('#extra')
-    return false
+    closePanel('#panel', '#banner')
 
   $('.panel').on 'click', (e) ->
     if e.target == @
       window.open("http://www.coach.com/", "_blank")
+  
+  window.onload = ->
+    setTimeout (->
+      openPanel('#panel', '#banner')
+      setTimeout (->
+        closePanel('#panel', '#banner')
+      ), 9000
+    ), 1000
 
 
 # ==============================================================================
 # CAROUSEL
 # ========
 
-$(document).ready ->
   $('#carousel').slick
     infinite: true
     speed: 600
