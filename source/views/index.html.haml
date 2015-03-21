@@ -22,11 +22,13 @@
             %a{href: "http://www.coach.com/coach-designer-handbags-prairie-satchel-in-whiplash-leather/34339.html", target: "_blank"}
               %img{src: "../assets/images/coach-prairie-satchel-34339.png", alt: "Coach Prairie Satchel in Whiplash Leather"}/
         #video
-          %video#coach-video.video-js.vjs-default-skin{controls: "", height: "280", width: "500"}
-            %source{:src => "../assets/videos/introducing-coach-swagger.mp4", :type => "video/mp4"}
+          .video-container
+            %a{href: "https://www.youtube.com/watch?v=ZiorYdIwH3M", target: "_blank"}
+              %video#coach-video.video-js.vjs-default-skin{controls: "", height: "280", width: "500"}
+                %source{:src => "../assets/videos/introducing-coach-swagger.mp4", :type => "video/mp4"}
               
           .call-to-action
-            %a.shop-now{href: "http://www.coach.com/shop/women-new-arrivals-new-arrivals"}
+            %a.shop-now{href: "http://www.coach.com/shop/women-new-arrivals-new-arrivals", target: "_blank"}
               shop now
       #twitter
         %a{href: "#", target: "_blank"}

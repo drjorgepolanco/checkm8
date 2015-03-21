@@ -22,7 +22,7 @@ $(document).ready ->
     $(out).fadeOut(1200)
     pushIt('#extra')
     coachVideo.play()
-    interact('#panel')
+    # interact('#panel')
 
   closePanel = (up, inward) ->
     $(up).slideUp(1500)
@@ -33,24 +33,24 @@ $(document).ready ->
 
   timer = undefined
 
-  interact = (selector) ->
-    # $(selector).each ->
-    $(@).on 'mouseleave', ->
-      console.log("User gone")
-      timer = setTimeout (->
-        console.log("time to close!")
-        closePanel('#panel', '#banner')  
-      ), 8000
-    $('*').on 'click', ->
-      console.log("User interacting")
-      clearTimeout timer
-    $('.panel, #coach-video, .slider, .item, #twitter').on "mouseover", ->
-      console.log("stopping timeout")
-      clearTimeout timer
+  # interact = (selector) ->
+  #   # $(selector).each ->
+  #   $(@).on 'mouseleave', ->
+  #     console.log("User gone")
+  #     timer = setTimeout (->
+  #       console.log("time to close!")
+  #       closePanel('#panel', '#banner')  
+  #     ), 8000
+  #   $('*').on 'click', ->
+  #     console.log("User interacting")
+  #     clearTimeout timer
+  #   $('.panel, #coach-video, .slider, .item, #twitter').on "mouseover", ->
+  #     console.log("stopping timeout")
+  #     clearTimeout timer
 
   $('.expand').on 'click', 'h3', ->
     openPanel('#panel', '#banner')
-    interact('#panel')
+    # interact('#panel')
 
   $('.collapse').on 'click', 'h3', ->
     closePanel('#panel', '#banner')
@@ -58,6 +58,9 @@ $(document).ready ->
   $('.panel').on 'click', (e) ->
     if e.target == @
       window.open("http://www.coach.com/", "_blank")
+
+  $('video').on 'click', ->
+    coachVideo.pause()
   
   window.onload = ->
     setTimeout (->
