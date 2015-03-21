@@ -105,10 +105,9 @@ $(document).ready ->
   window.onload = ->
     setTimeout (->
       openPanel()
-      $('.panel').on 'mouseleave', ->
-        setTimeout (->
-          closePanel()
-        ), 9000
+      setTimeout (->
+        closePanel()
+      ), 9000
     ), 1000
 
 # ==============================================================================
