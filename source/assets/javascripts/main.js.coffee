@@ -7,6 +7,9 @@ $(document).ready ->
     muted: true, 
     preload: "auto" 
   }
+  
+  $('video').on 'click', ->
+    coachVideo.pause()
 
 
 # ==============================================================================
@@ -45,9 +48,6 @@ $(document).ready ->
   $('.panel').on 'click', (e) ->
     if e.target == @
       window.open("http://www.coach.com/", "_blank")
-
-  $('video').on 'click', ->
-    coachVideo.pause()
 
 
 # ==============================================================================
