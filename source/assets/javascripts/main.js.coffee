@@ -23,6 +23,10 @@ $(document).ready ->
     pushIt('#extra')
     return false
 
+  $('.panel').on 'click', (e) ->
+    if e.target == @
+      window.open("http://www.coach.com/", "_blank")
+
 
 # ==============================================================================
 # CAROUSEL

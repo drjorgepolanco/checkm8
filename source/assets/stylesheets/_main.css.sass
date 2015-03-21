@@ -20,6 +20,10 @@ $twitter: #4099FF
   position: absolute
   top: 0
   left: 0
+%smooth-transition
+  -webkit-transition: all .4s
+  transition: all .4s
+
 
 
 // =============================================================================
@@ -90,6 +94,9 @@ body
           img
             display: block 
             margin: 0 auto
+            @extend %smooth-transition
+            &:hover
+              opacity: 0.8
       #video
         float: right
         margin-top: 90px
@@ -108,8 +115,7 @@ body
             background: $white
             border-radius: 10px
             color: $coach
-            -webkit-transition: all .4s
-            transition: all .4s
+            @extend %smooth-transition
             border: 2px solid $white
             &:hover
               color: $white
@@ -123,12 +129,15 @@ body
       float: right
       border-radius: 50%
       margin-right: 65px
+      @extend %smooth-transition
       img
         height: 34px
         width: 34px
         margin: 0 auto
         display: block
         margin-top: 9px
+      &:hover
+        opacity: 0.8
 
 
 #extra
