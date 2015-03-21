@@ -7,3 +7,6 @@ gem "middleman-livereload"
 gem "middleman-deploy"
 gem "bourbon"
 gem "neat"
+gem 'middleman-minify-html'
+gem 'middleman-imageoptim'
+gem 'image_optim_pack'
