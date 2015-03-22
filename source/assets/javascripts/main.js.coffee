@@ -1,9 +1,11 @@
 'use strict'
+
+$(document).ready ->
+
 # ==============================================================================
 # VIDEO
 # =====
 
-$(document).ready ->
   coachVideo = document.getElementById('coach-video')
   coachVideo.muted = "muted"
 
@@ -70,7 +72,6 @@ $(document).ready ->
 
   startTimeout = () ->
     timer = window.setTimeout (->
-      console.log("closing")
       closePanel()
     ), 8000
     return

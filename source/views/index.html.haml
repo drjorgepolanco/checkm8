@@ -1,11 +1,20 @@
+/ Variables
+- coach   = "http://www.coach.com/"
+- bags    = "coach-designer-handbags"
+- swagger = "coach-swagger"
+- twitter = "https://twitter.com/share?url=drjorgepolanco.com&text"
+- youtube = "https://www.youtube.com/watch?v"
+- images  = "../assets/images/"
+
 #wrapper
   #banner
     .banner
       .expand
         %h3= link_to "expand", "#"
       .background
-        %a{href: "http://www.coach.com", target: "_blank"}
-          = image_tag("../images/background_top_banner_black.jpg")
+        %a{href: "#{coach}", 
+           target: "_blank"}
+          %img{src: "#{images}background_top_banner_black.jpg", alt: ""}/
   #panel
     .panel
       .collapse
@@ -13,25 +22,38 @@
       #media
         #carousel.slider
           .item
-            %a{href: "http://www.coach.com/coach-designer-handbags-coach-swagger-carryall-in-colorblock-leather/34420.html", target: "_blank"}
-              %img{src: "../assets/images/coach-swagger-leather-34420.png", alt: "Coach Swagger Carryall in Colorblock Leather"}/
+            %a{href: "#{coach}#{bags}-#{swagger}-carryall-in-colorblock-leather/34420.html", 
+               target: "_blank"}
+              %img{src: "#{images}#{swagger}-leather-34420.png", 
+                   alt: "Coach Swagger Carryall in Colorblock Leather"}/
           .item
-            %a{href: "http://www.coach.com/coach-designer-handbags-coach-swagger-carryall-in-pebble-leather/35796.html", target: "_blank"}
-              %img{src: "../assets/images/coach-swagger-pebble-35796.png", alt: "Coach Swagger Carryall in Pebble Leather"}/
+            %a{href: "#{coach}#{bags}-#{swagger}-carryall-in-pebble-leather/35796.html", 
+               target: "_blank"}
+              %img{src: "#{images}#{swagger}-pebble-35796.png", 
+                   alt: "Coach Swagger Carryall in Pebble Leather"}/
           .item
-            %a{href: "http://www.coach.com/coach-designer-handbags-prairie-satchel-in-whiplash-leather/34339.html", target: "_blank"}
-              %img{src: "../assets/images/coach-prairie-satchel-34339.png", alt: "Coach Prairie Satchel in Whiplash Leather"}/
+            %a{href: "#{coach}#{bags}-prairie-satchel-in-whiplash-leather/34339.html", 
+               target: "_blank"}
+              %img{src: "#{images}coach-prairie-satchel-34339.png", 
+                   alt: "Coach Prairie Satchel in Whiplash Leather"}/
         #video
           .video-container
-            %a{href: "https://www.youtube.com/watch?v=ZiorYdIwH3M", target: "_blank"}
-              %video#coach-video{width: "500", height: "280", controls: ""}
-                %source{:src => "../assets/videos/introducing-coach-swagger.mp4", :type => "video/mp4"}
+            %a{href: "#{youtube}=ZiorYdIwH3M", 
+               target: "_blank"}
+              %video#coach-video{width: "500", 
+                                 height: "280", 
+                                 controls: ""}
+                %source{src: "../assets/videos/introducing-#{swagger}.mp4", 
+                        type: "video/mp4"}
           .call-to-action
-            %a.shop-now{href: "http://www.coach.com/shop/women-new-arrivals-new-arrivals", target: "_blank"}
+            %a.shop-now{href: "#{coach}shop/women-new-arrivals-new-arrivals", 
+                        target: "_blank"}
               shop now
       #twitter
-        %a.twitter-share-button{href: "https://twitter.com/share?url=drjorgepolanco.com&text=I LOVE the new @coach swagger!", target: "_blank"}
-          %img{src: "../assets/images/twitter.png", alt: "Twitter Logo"}/
+        %a.twitter-share-button{href: "#{twitter}=I LOVE the new @coach swagger!", 
+                                target: "_blank"}
+          %img{src: "#{images}twitter.png", 
+               alt: "Twitter Logo"}/
 
 #extra
   .extra
