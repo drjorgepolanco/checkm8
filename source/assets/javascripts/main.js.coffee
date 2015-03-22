@@ -22,6 +22,8 @@ $(document).ready ->
 # PUSHDOWN
 # ========
 
+  timer = undefined
+  isMouseOver = false
   isPanelOpen = false
 
   pushIt = () ->
@@ -38,6 +40,7 @@ $(document).ready ->
     $('#banner').fadeOut(1200)
     pushIt('#extra')
     coachVideo.play()
+    startTimeout() if isMouseOver == false
     return
 
   closePanel = () ->
@@ -64,9 +67,6 @@ $(document).ready ->
 # ==============================================================================
 # USER INTERACTION
 # ================
-  
-  timer = undefined
-  isMouseOver = false
 
   startTimeout = () ->
     timer = window.setTimeout (->
