@@ -22,6 +22,8 @@ $(document).ready ->
 # PUSHDOWN
 # ========
 
+  isPanelOpen = false
+
   pushIt = () ->
     extra = $('#extra')
     if extra.css('top') == '0px' 
@@ -31,6 +33,7 @@ $(document).ready ->
     return
 
   openPanel = () ->
+    isPanelOpen = true
     $('#panel').slideDown(1500)
     $('#banner').fadeOut(1200)
     pushIt('#extra')
@@ -38,6 +41,7 @@ $(document).ready ->
     return
 
   closePanel = () ->
+    isPanelOpen = false
     $('#panel').slideUp(1500)
     $('#banner').fadeIn(2000)
     pushIt('#extra')
@@ -85,7 +89,7 @@ $(document).ready ->
       stopTimeout()
     document.getElementById('panel').onmouseout = ->
       isMouseOver = false
-      startTimeout()
+      startTimeout() if isPanelOpen == true
     return
 
 
