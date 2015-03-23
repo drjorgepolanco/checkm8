@@ -72,7 +72,7 @@ $(document).ready ->
 
   startTimeout = () ->
     timer = window.setTimeout (->
-      closePanel()
+      closePanel() if isPanelOpen == true and isMouseOver == false
     ), 8000
     return
 
@@ -83,14 +83,14 @@ $(document).ready ->
   window.onload = ->
     window.setTimeout (->
       openPanel()
-      startTimeout() if isMouseOver == false
+      startTimeout()
     ), 1000
     document.getElementById('panel').onmouseover = ->
       isMouseOver = true
       stopTimeout()
     document.getElementById('panel').onmouseout = ->
       isMouseOver = false
-      startTimeout() if isPanelOpen == true
+      startTimeout()
     return
 
 
