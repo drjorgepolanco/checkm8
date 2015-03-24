@@ -40,7 +40,7 @@ $(document).ready ->
     isPanelOpen = true
     $('#panel').slideDown(1500)
     $('#banner').fadeOut(1200)
-    pushIt('#extra')
+    pushIt()
     coachVideo.play()
     startTimeout() if isMouseOver == false
     return
@@ -49,7 +49,7 @@ $(document).ready ->
     isPanelOpen = false
     $('#panel').slideUp(1500)
     $('#banner').fadeIn(2000)
-    pushIt('#extra')
+    pushIt()
     coachVideo.pause()
     return
 
@@ -64,6 +64,7 @@ $(document).ready ->
   $('.panel').on 'click', (e) ->
     if e.target == @
       window.open("http://www.coach.com/", "_blank")
+    return
 
 
 # ==============================================================================
